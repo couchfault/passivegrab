@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3E39EFCE-8F84-4E1F-AE44-0EEB39FAAABF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>passivegrab</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</key>
+		<string>https://github.com/735tesla/passivegrab</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>passivegrab.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/735tesla/passivegrab</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>passivegrab</string>
+		</dict>
+	</array>
+</dict>
+</plist>
