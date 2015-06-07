@@ -12,6 +12,8 @@
 	<dict>
 		<key>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</key>
 		<string>https://github.com/735tesla/passivegrab</string>
+		<key>6DE230DB514BAC3B64CA571C1A3204A569294FA2</key>
+		<string>git://github.com/735tesla/teslasock</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>passivegrab.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</key>
 		<string>../..</string>
+		<key>6DE230DB514BAC3B64CA571C1A3204A569294FA2</key>
+		<string>../../passivegrab/teslasock/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/735tesla/passivegrab</string>
@@ -35,6 +39,14 @@
 			<string>487EF3A54CDD71F3143FE68CB1B2E535FE9A0BC0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>passivegrab</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6DE230DB514BAC3B64CA571C1A3204A569294FA2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>teslasock</string>
 		</dict>
 	</array>
 </dict>

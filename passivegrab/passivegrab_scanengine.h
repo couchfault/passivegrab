@@ -11,6 +11,10 @@
 
 #include <stdio.h>
 #include <pthread.h>
+#include "passivegrab_plugin.h"
 
+
+
+void do_scan(passivegrab_plugins_list *list, char *host, int port);
 
 #endif /* defined(__passivegrab__passivegrab_scanengine__) */

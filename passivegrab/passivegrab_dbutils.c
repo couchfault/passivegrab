@@ -47,7 +47,7 @@ int passivegrab_db_connection_report_new_result(passivegrab_db_connection *db_co
     pthread_mutex_lock(&db_connection->db_lock);
     time_t epoch_time = 0;
     gmtime(&epoch_time);
-    const char *query = "INSERT OR REPLACE INTO scan_results(IP, HOSTNAME, PORT, BANNER) VALUES(:VVV, :VVV, ?NNN, :VVV)";
+    const char *query = "INSERT OR REPLACE INTO scan_results(IP, HOSTNAME, PORT, BANNER) VALUES(?, ?, ?, ?)";
     if (sqlite3_prepare_v2(db_connection->db_handle, query, -1, &db_connection->current_prep_statement, 0) != SQLITE_OK) {
         fprintf(stderr, "Error preparing query '%s': %s\n", query, sqlite3_errmsg(db_connection->db_handle));
         return 1;
@@ -56,6 +56,7 @@ int passivegrab_db_connection_report_new_result(passivegrab_db_connection *db_co
     sqlite3_bind_text(db_connection->current_prep_statement, 2, hostname, -1, SQLITE_TRANSIENT);
     sqlite3_bind_int(db_connection->current_prep_statement, 3, port);
     sqlite3_bind_text(db_connection->current_prep_statement, 4, banner, -1, SQLITE_TRANSIENT);
+    sqlite3_step(db_connection->current_prep_statement);
     pthread_mutex_unlock(&db_connection->db_lock);
     return 0;
 }

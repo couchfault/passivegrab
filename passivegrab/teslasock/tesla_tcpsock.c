@@ -1,13 +1,13 @@
 //
-//  passivegrab_tcpsocket.c
-//  passivegrab
+//  tesla_tcpsocket.c
+//  tesla
 //
-//  Created by Nikola Tesla on 2/12/15.
+//  Created by Henry Pitcairn on 2/12/15.
 //  Copyright (c) 2015 Entropy. All rights reserved.
 //
 
-#include "passivegrab_tcpsocket.h"
-#include "passivegrab_netutils.h"
+#include "tesla_tcpsock.h"
+#include "tesla_netutils.h"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <stdio.h>
@@ -18,16 +18,16 @@
 #include <fcntl.h>
 #include <sys/select.h>
 
-passivegrab_tcpsocket* passivegrab_tcpsocket_init(char *host, int port, unsigned int connect_timeout) {
-    passivegrab_tcpsocket *tcpsocket;
-    if (!(tcpsocket = malloc(sizeof(passivegrab_tcpsocket)))) {
+tesla_tcpsocket* tesla_tcpsocket_init(char *host, int port, unsigned int connect_timeout) {
+    tesla_tcpsocket *tcpsocket;
+    if (!(tcpsocket = malloc(sizeof(tesla_tcpsocket)))) {
         fprintf(stderr, "[!] Malloc failure\n");
         return NULL;
     }
-    memset(tcpsocket, 0, sizeof(passivegrab_tcpsocket));
+    memset(tcpsocket, 0, sizeof(tesla_tcpsocket));
     tcpsocket->port = port;
     bzero(tcpsocket->addr, sizeof(tcpsocket->addr));
-    if ((passivegrab_dns_lookup_host(host, tcpsocket->addr, sizeof(tcpsocket->addr)))) {
+    if ((tesla_dns_lookup_host(host, tcpsocket->addr, sizeof(tcpsocket->addr)))) {
         fprintf(stderr, "[!] Failed to lookup hostname %s\n", host);
         free(tcpsocket);
         return NULL;
@@ -56,17 +56,17 @@ passivegrab_tcpsocket* passivegrab_tcpsocket_init(char *host, int port, unsigned
     return tcpsocket;
 }
 
-passivegrab_tcpsocket* passivegrab_tcpsocket_init_with_timeouts(char *host, int port, unsigned int connect_timeout, unsigned int send_timeout, unsigned int recv_timeout) {
-    passivegrab_tcpsocket *tcpsocket;
-    if ((tcpsocket = passivegrab_tcpsocket_init(host, port, connect_timeout)) == NULL)
+tesla_tcpsocket* tesla_tcpsocket_init_with_timeouts(char *host, int port, unsigned int connect_timeout, unsigned int send_timeout, unsigned int recv_timeout) {
+    tesla_tcpsocket *tcpsocket;
+    if ((tcpsocket = tesla_tcpsocket_init(host, port, connect_timeout)) == NULL)
         return NULL;
-    if (passivegrab_tcpsocket_set_sendrecv_timeout(tcpsocket, send_timeout, recv_timeout))
+    if (tesla_tcpsocket_set_sendrecv_timeout(tcpsocket, send_timeout, recv_timeout))
         return NULL;
     return tcpsocket;
 }
 
-int passivegrab_tcpsocket_set_send_timeout(passivegrab_tcpsocket *tcpsocket, unsigned int timeout_secs) {
-    if (passivegrab_tcpsocket_assert_unconnected(tcpsocket)) {
+int tesla_tcpsocket_set_send_timeout(tesla_tcpsocket *tcpsocket, unsigned int timeout_secs) {
+    if (tesla_tcpsocket_assert_unconnected(tcpsocket)) {
         struct timeval timeout;
         timeout.tv_sec = timeout_secs;
         timeout.tv_usec = 0;
@@ -77,8 +77,8 @@ int passivegrab_tcpsocket_set_send_timeout(passivegrab_tcpsocket *tcpsocket, uns
     return 1;
 }
 
-int passivegrab_tcpsocket_set_recv_timeout(passivegrab_tcpsocket *tcpsocket, unsigned int timeout_secs) {
-    if (passivegrab_tcpsocket_assert_unconnected(tcpsocket)) {
+int tesla_tcpsocket_set_recv_timeout(tesla_tcpsocket *tcpsocket, unsigned int timeout_secs) {
+    if (tesla_tcpsocket_assert_unconnected(tcpsocket)) {
         struct timeval timeout;
         timeout.tv_sec = timeout_secs;
         timeout.tv_usec = 0;
@@ -89,14 +89,14 @@ int passivegrab_tcpsocket_set_recv_timeout(passivegrab_tcpsocket *tcpsocket, uns
     return 1;
 }
 
-int passivegrab_tcpsocket_set_sendrecv_timeout(passivegrab_tcpsocket *tcpsocket, unsigned int send_timeout, unsigned int recv_timeout) {
-    if (passivegrab_tcpsocket_set_send_timeout(tcpsocket, send_timeout) || passivegrab_tcpsocket_set_recv_timeout(tcpsocket, recv_timeout))
+int tesla_tcpsocket_set_sendrecv_timeout(tesla_tcpsocket *tcpsocket, unsigned int send_timeout, unsigned int recv_timeout) {
+    if (tesla_tcpsocket_set_send_timeout(tcpsocket, send_timeout) || tesla_tcpsocket_set_recv_timeout(tcpsocket, recv_timeout))
         return 1;
     return 0;
 }
 
-int passivegrab_tcpsocket_connect(passivegrab_tcpsocket *tcpsocket) {
-    if (passivegrab_tcpsocket_assert_unconnected(tcpsocket)) {
+int tesla_tcpsocket_connect(tesla_tcpsocket *tcpsocket) {
+    if (tesla_tcpsocket_assert_unconnected(tcpsocket)) {
         int success;
         success = connect(tcpsocket->sockfd, (struct sockaddr*)&tcpsocket->server_addr, sizeof(struct sockaddr_in));
         if (success != 0 && !tcpsocket->blocking) {
@@ -117,45 +117,45 @@ int passivegrab_tcpsocket_connect(passivegrab_tcpsocket *tcpsocket) {
     return 0;
 }
 
-int passivegrab_tcpsocket_assert_connected(passivegrab_tcpsocket *tcpsocket) {
+int tesla_tcpsocket_assert_connected(tesla_tcpsocket *tcpsocket) {
     if (!tcpsocket->connected) {
-        fprintf(stderr, "[!] passivegrab_tcpsocket for %s:%d is not connected\n", tcpsocket->addr, tcpsocket->port);
+        fprintf(stderr, "[!] tesla_tcpsocket for %s:%d is not connected\n", tcpsocket->addr, tcpsocket->port);
         return 0;
     }
     return 1;
 }
 
-int passivegrab_tcpsocket_assert_unconnected(passivegrab_tcpsocket *tcpsocket) {
+int tesla_tcpsocket_assert_unconnected(tesla_tcpsocket *tcpsocket) {
     if (tcpsocket->connected) {
-        fprintf(stderr, "[!] passivegrab_tcpsocket for %s:%d is already connected\n", tcpsocket->addr, tcpsocket->port);
+        fprintf(stderr, "[!] tesla_tcpsocket for %s:%d is already connected\n", tcpsocket->addr, tcpsocket->port);
         return 0;
     }
     return 1;
 }
 
-ssize_t passivegrab_tcpsocket_send(passivegrab_tcpsocket *tcpsocket, char *data_buffer, size_t data_len) {
-    if (passivegrab_tcpsocket_assert_connected(tcpsocket)) {
+ssize_t tesla_tcpsocket_send(tesla_tcpsocket *tcpsocket, char *data_buffer, size_t data_len) {
+    if (tesla_tcpsocket_assert_connected(tcpsocket)) {
         return send(tcpsocket->sockfd, data_buffer, data_len, 0);
     }
     return 0;
 }
 
-ssize_t passivegrab_tcpsocket_recv(passivegrab_tcpsocket *tcpsocket, void *dest_buffer, size_t read_len) {
-    if (passivegrab_tcpsocket_assert_connected(tcpsocket)) {
+ssize_t tesla_tcpsocket_recv(tesla_tcpsocket *tcpsocket, void *dest_buffer, size_t read_len) {
+    if (tesla_tcpsocket_assert_connected(tcpsocket)) {
         return recv(tcpsocket->sockfd, dest_buffer, read_len, 0);
     }
     return 0;
 }
 
-void passivegrab_tcpsocket_close(passivegrab_tcpsocket *tcpsocket) {
+void tesla_tcpsocket_close(tesla_tcpsocket *tcpsocket) {
     close(tcpsocket->sockfd);
 }
 
-void passivegrab_tcpsocket_destroy(passivegrab_tcpsocket *tcpsocket) {
+void tesla_tcpsocket_destroy(tesla_tcpsocket *tcpsocket) {
     free(tcpsocket);
 }
 
-void passivegrab_tcpsocket_close_and_destroy(passivegrab_tcpsocket *tcpsocket) {
-    passivegrab_tcpsocket_close(tcpsocket);
-    passivegrab_tcpsocket_destroy(tcpsocket);
+void tesla_tcpsocket_close_and_destroy(tesla_tcpsocket *tcpsocket) {
+    tesla_tcpsocket_close(tcpsocket);
+    tesla_tcpsocket_destroy(tcpsocket);
 }

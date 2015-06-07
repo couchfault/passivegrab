@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5E18C4FB1A8D0D9E00FABA56 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C4FA1A8D0D9E00FABA56 /* main.c */; };
-		5E18C5031A8D0DE100FABA56 /* passivegrab_tcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C5011A8D0DE100FABA56 /* passivegrab_tcpsocket.c */; };
-		5E18C5061A8D112D00FABA56 /* passivegrab_netutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C5041A8D112D00FABA56 /* passivegrab_netutils.c */; };
-		5E18C5091A8D114800FABA56 /* passivegrab_udpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C5071A8D114800FABA56 /* passivegrab_udpsocket.c */; };
-		5E18C50C1A8D11D400FABA56 /* passivegrab_pluginutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C50A1A8D11D400FABA56 /* passivegrab_pluginutils.c */; };
+		5E18C50C1A8D11D400FABA56 /* passivegrab_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C50A1A8D11D400FABA56 /* passivegrab_plugin.c */; };
 		5E18C50F1A8D11F100FABA56 /* passivegrab_dbutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C50D1A8D11F100FABA56 /* passivegrab_dbutils.c */; };
 		5E18C5121A8D127A00FABA56 /* passivegrab_parseargs.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E18C5101A8D127A00FABA56 /* passivegrab_parseargs.c */; };
+		5E5AEDAE1B23DE13001F084D /* tesla_netutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E5AEDA71B23DE13001F084D /* tesla_netutils.c */; };
+		5E5AEDAF1B23DE13001F084D /* tesla_tcpsock.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E5AEDA91B23DE13001F084D /* tesla_tcpsock.c */; };
+		5E5AEDB01B23DE13001F084D /* tesla_udpsock.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E5AEDAB1B23DE13001F084D /* tesla_udpsock.c */; };
+		5E802D1F1B025E92005063AA /* passivegrab_dirutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E802D1D1B025E92005063AA /* passivegrab_dirutil.c */; };
+		5E802D221B025EBC005063AA /* strutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E802D201B025EBC005063AA /* strutil.c */; };
+		5E802D3E1B06D936005063AA /* passivegrab_queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E802D3C1B06D936005063AA /* passivegrab_queue.c */; };
 		5E8F5DE91A9267DB003F969B /* passivegrab_scanengine.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F5DE71A9267DB003F969B /* passivegrab_scanengine.c */; };
+		5E9295CC1B0907D60049E7D8 /* passivegrab_task.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E9295CA1B0907D60049E7D8 /* passivegrab_task.c */; };
+		5E9295E21B0AB6410049E7D8 /* passivegrab_scantarget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E9295E01B0AB6410049E7D8 /* passivegrab_scantarget.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,20 +37,30 @@
 /* Begin PBXFileReference section */
 		5E18C4F71A8D0D9E00FABA56 /* passivegrab */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = passivegrab; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E18C4FA1A8D0D9E00FABA56 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		5E18C5011A8D0DE100FABA56 /* passivegrab_tcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_tcpsocket.c; sourceTree = "<group>"; };
-		5E18C5021A8D0DE100FABA56 /* passivegrab_tcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_tcpsocket.h; sourceTree = "<group>"; };
-		5E18C5041A8D112D00FABA56 /* passivegrab_netutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_netutils.c; sourceTree = "<group>"; };
-		5E18C5051A8D112D00FABA56 /* passivegrab_netutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_netutils.h; sourceTree = "<group>"; };
-		5E18C5071A8D114800FABA56 /* passivegrab_udpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_udpsocket.c; sourceTree = "<group>"; };
-		5E18C5081A8D114800FABA56 /* passivegrab_udpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_udpsocket.h; sourceTree = "<group>"; };
-		5E18C50A1A8D11D400FABA56 /* passivegrab_pluginutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_pluginutils.c; sourceTree = "<group>"; };
-		5E18C50B1A8D11D400FABA56 /* passivegrab_pluginutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_pluginutils.h; sourceTree = "<group>"; };
+		5E18C50A1A8D11D400FABA56 /* passivegrab_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_plugin.c; sourceTree = "<group>"; };
+		5E18C50B1A8D11D400FABA56 /* passivegrab_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_plugin.h; sourceTree = "<group>"; };
 		5E18C50D1A8D11F100FABA56 /* passivegrab_dbutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_dbutils.c; sourceTree = "<group>"; };
 		5E18C50E1A8D11F100FABA56 /* passivegrab_dbutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_dbutils.h; sourceTree = "<group>"; };
 		5E18C5101A8D127A00FABA56 /* passivegrab_parseargs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_parseargs.c; sourceTree = "<group>"; };
 		5E18C5111A8D127A00FABA56 /* passivegrab_parseargs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_parseargs.h; sourceTree = "<group>"; };
+		5E5AEDA71B23DE13001F084D /* tesla_netutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tesla_netutils.c; sourceTree = "<group>"; };
+		5E5AEDA81B23DE13001F084D /* tesla_netutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tesla_netutils.h; sourceTree = "<group>"; };
+		5E5AEDA91B23DE13001F084D /* tesla_tcpsock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tesla_tcpsock.c; sourceTree = "<group>"; };
+		5E5AEDAA1B23DE13001F084D /* tesla_tcpsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tesla_tcpsock.h; sourceTree = "<group>"; };
+		5E5AEDAB1B23DE13001F084D /* tesla_udpsock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tesla_udpsock.c; sourceTree = "<group>"; };
+		5E5AEDAC1B23DE13001F084D /* tesla_udpsock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tesla_udpsock.h; sourceTree = "<group>"; };
+		5E802D1D1B025E92005063AA /* passivegrab_dirutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_dirutil.c; sourceTree = "<group>"; };
+		5E802D1E1B025E92005063AA /* passivegrab_dirutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_dirutil.h; sourceTree = "<group>"; };
+		5E802D201B025EBC005063AA /* strutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strutil.c; sourceTree = "<group>"; };
+		5E802D211B025EBC005063AA /* strutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strutil.h; sourceTree = "<group>"; };
+		5E802D3C1B06D936005063AA /* passivegrab_queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_queue.c; sourceTree = "<group>"; };
+		5E802D3D1B06D936005063AA /* passivegrab_queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_queue.h; sourceTree = "<group>"; };
 		5E8F5DE71A9267DB003F969B /* passivegrab_scanengine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_scanengine.c; sourceTree = "<group>"; };
 		5E8F5DE81A9267DB003F969B /* passivegrab_scanengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_scanengine.h; sourceTree = "<group>"; };
+		5E9295CA1B0907D60049E7D8 /* passivegrab_task.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_task.c; sourceTree = "<group>"; };
+		5E9295CB1B0907D60049E7D8 /* passivegrab_task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_task.h; sourceTree = "<group>"; };
+		5E9295E01B0AB6410049E7D8 /* passivegrab_scantarget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passivegrab_scantarget.c; sourceTree = "<group>"; };
+		5E9295E11B0AB6410049E7D8 /* passivegrab_scantarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = passivegrab_scantarget.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,23 +93,41 @@
 		5E18C4F91A8D0D9E00FABA56 /* passivegrab */ = {
 			isa = PBXGroup;
 			children = (
+				5E5AEDA41B23DE13001F084D /* teslasock */,
 				5E18C4FA1A8D0D9E00FABA56 /* main.c */,
+				5E9295CA1B0907D60049E7D8 /* passivegrab_task.c */,
+				5E9295CB1B0907D60049E7D8 /* passivegrab_task.h */,
+				5E802D3C1B06D936005063AA /* passivegrab_queue.c */,
+				5E802D3D1B06D936005063AA /* passivegrab_queue.h */,
 				5E8F5DE71A9267DB003F969B /* passivegrab_scanengine.c */,
 				5E8F5DE81A9267DB003F969B /* passivegrab_scanengine.h */,
-				5E18C5011A8D0DE100FABA56 /* passivegrab_tcpsocket.c */,
-				5E18C5021A8D0DE100FABA56 /* passivegrab_tcpsocket.h */,
-				5E18C5041A8D112D00FABA56 /* passivegrab_netutils.c */,
-				5E18C5051A8D112D00FABA56 /* passivegrab_netutils.h */,
-				5E18C5071A8D114800FABA56 /* passivegrab_udpsocket.c */,
-				5E18C5081A8D114800FABA56 /* passivegrab_udpsocket.h */,
-				5E18C50A1A8D11D400FABA56 /* passivegrab_pluginutils.c */,
-				5E18C50B1A8D11D400FABA56 /* passivegrab_pluginutils.h */,
+				5E9295E01B0AB6410049E7D8 /* passivegrab_scantarget.c */,
+				5E9295E11B0AB6410049E7D8 /* passivegrab_scantarget.h */,
+				5E802D1D1B025E92005063AA /* passivegrab_dirutil.c */,
+				5E802D1E1B025E92005063AA /* passivegrab_dirutil.h */,
+				5E802D201B025EBC005063AA /* strutil.c */,
+				5E802D211B025EBC005063AA /* strutil.h */,
+				5E18C50A1A8D11D400FABA56 /* passivegrab_plugin.c */,
+				5E18C50B1A8D11D400FABA56 /* passivegrab_plugin.h */,
 				5E18C50D1A8D11F100FABA56 /* passivegrab_dbutils.c */,
 				5E18C50E1A8D11F100FABA56 /* passivegrab_dbutils.h */,
 				5E18C5101A8D127A00FABA56 /* passivegrab_parseargs.c */,
 				5E18C5111A8D127A00FABA56 /* passivegrab_parseargs.h */,
 			);
 			path = passivegrab;
+			sourceTree = "<group>";
+		};
+		5E5AEDA41B23DE13001F084D /* teslasock */ = {
+			isa = PBXGroup;
+			children = (
+				5E5AEDA71B23DE13001F084D /* tesla_netutils.c */,
+				5E5AEDA81B23DE13001F084D /* tesla_netutils.h */,
+				5E5AEDA91B23DE13001F084D /* tesla_tcpsock.c */,
+				5E5AEDAA1B23DE13001F084D /* tesla_tcpsock.h */,
+				5E5AEDAB1B23DE13001F084D /* tesla_udpsock.c */,
+				5E5AEDAC1B23DE13001F084D /* tesla_udpsock.h */,
+			);
+			path = teslasock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,14 +186,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E18C5091A8D114800FABA56 /* passivegrab_udpsocket.c in Sources */,
-				5E18C5031A8D0DE100FABA56 /* passivegrab_tcpsocket.c in Sources */,
+				5E9295CC1B0907D60049E7D8 /* passivegrab_task.c in Sources */,
 				5E8F5DE91A9267DB003F969B /* passivegrab_scanengine.c in Sources */,
-				5E18C50C1A8D11D400FABA56 /* passivegrab_pluginutils.c in Sources */,
+				5E18C50C1A8D11D400FABA56 /* passivegrab_plugin.c in Sources */,
+				5E5AEDAF1B23DE13001F084D /* tesla_tcpsock.c in Sources */,
 				5E18C50F1A8D11F100FABA56 /* passivegrab_dbutils.c in Sources */,
+				5E9295E21B0AB6410049E7D8 /* passivegrab_scantarget.c in Sources */,
+				5E5AEDAE1B23DE13001F084D /* tesla_netutils.c in Sources */,
 				5E18C4FB1A8D0D9E00FABA56 /* main.c in Sources */,
 				5E18C5121A8D127A00FABA56 /* passivegrab_parseargs.c in Sources */,
-				5E18C5061A8D112D00FABA56 /* passivegrab_netutils.c in Sources */,
+				5E5AEDB01B23DE13001F084D /* tesla_udpsock.c in Sources */,
+				5E802D1F1B025E92005063AA /* passivegrab_dirutil.c in Sources */,
+				5E802D3E1B06D936005063AA /* passivegrab_queue.c in Sources */,
+				5E802D221B025EBC005063AA /* strutil.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
