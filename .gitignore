@@ -27,3 +27,9 @@
 *.i*86
 *.x86_64
 *.hex
+<<<<<<< HEAD
+=======
+
+# Debug files
+*.dSYM/
+>>>>>>> 153e079a9f259bc0d60a91b8af9087f0e7dff2a6
